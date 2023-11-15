@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: karsajob-frontend
+  name: karsajob-frontend
+  namespace: ari
+spec:
+  ports:
+  - port: 8000
+    targetPort: 8000
+    nodePort: 30102
+  selector:
+    app: karsajob-frontend
+  type: NodePort
