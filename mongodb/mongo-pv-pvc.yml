@@ -6,13 +6,21 @@ metadata:
     type: local
   namespace: ari
 spec:
-  storageClassName: manual
+  storageClassName: mongo-storageclass
   capacity:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: "/data/db"
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: size
+          operator: In
+          values:
+            - large
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -20,7 +28,8 @@ metadata:
   name: mongo-pvc
   namespace: ari
 spec:
-  storageClassName: manual
+  storageClassName: mongo-storageclass
+  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   resources:
