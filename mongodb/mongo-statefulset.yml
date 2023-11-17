@@ -49,10 +49,10 @@ spec:
           items:
           - key: MONGO_ROOT_USERNAME
             path: admin/MONGO_ROOT_USERNAME
-            mode: 0444
+            mode: 0777
           - key: MONGO_ROOT_PASSWORD
             path: admin/MONGO_ROOT_PASSWORD
-            mode: 0444
+            mode: 0777
       - name: mongo-configmap
         configMap:
           name: mongo-configmap
