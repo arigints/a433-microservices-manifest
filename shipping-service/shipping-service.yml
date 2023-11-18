@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: shipping-service
+  name: shipping-service
+  namespace: ari
+spec:
+  ports:
+  - port: 3001
+    nodePort: 30108
+  selector:
+    app: shipping-service
+  type: NodePort

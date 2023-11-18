@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - rabbitmq-storageclass.yml
+  - rabbitmq-configmap.yml
+  - rabbitmq-pv-pvc.yml
+  - rabbitmq-secret.yml
+  - rabbitmq-service.yml
+  - rabbitmq-statefulset.yml
